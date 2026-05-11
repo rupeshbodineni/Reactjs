@@ -11,7 +11,7 @@ let App = () => {
     <div>
       <Router>
         <Navbar />
-        <Routes>
+        <Routes>                              
           <Route path="/index" element={<Home />} />
           <Route path="/contact" element={<ContactApp />} />
           <Route path="/contactlist" element={<ContactList />} />
