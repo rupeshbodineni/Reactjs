@@ -1,18 +1,35 @@
-import React from 'react'
-import Navbar from './assets/Navbar/Navbar'
-import ContactApp from './Components/ContactApp'
-import ContactDeatils from './Components/ContactDeatils'
-import ContactsList from './Components/ContactsList'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState } from "react";
+import ContactForm from "./components/ContactForm";
+import ContactList from "./components/ContactList";
+import "./App.css";
 
 const App = () => {
-  return (
-    <div>
-        <ContactApp/>
-        <ContactDeatils/>
-        <ContactsList/>
-    </div>
-  )
-}
+  const [contacts, setContacts] = useState([]);
 
-export default App
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
+  };
+
+  const deleteContact = (id) => {
+    const filteredData = contacts.filter(
+      (contact) => contact.id !== id
+    );
+
+    setContacts(filteredData);
+  };
+
+  return (
+    <div className="app-container">
+      <h1 className="heading">Contact App</h1>
+
+      <ContactForm addContact={addContact} />
+
+      <ContactList
+        contacts={contacts}
+        deleteContact={deleteContact}
+      />
+    </div>
+  );
+};
+
+export default App;
