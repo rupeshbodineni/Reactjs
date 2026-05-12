@@ -1,24 +1,20 @@
 import Navbar from "./Navbar/Navbar";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Home from './components/Home';
-import ContactApp from "./ContactApp/ContactApp";
-import ContactList from "./ContactApp/ContactList";
+import ContactApp from "./contactapp/ContactApp";
+import 'bootstrap/dist/css/bootstrap.css';
+import ContactDetails from "./contactapp/ContactDetails";
+let App = ()=>{
 
-let App = () => {
-
-  return (
-    <div>
-      <Router>
-        <Navbar />
-        <Routes>                              
-          <Route path="/index" element={<Home />} />
-          <Route path="/contact" element={<ContactApp />} />
-          <Route path="/contactlist" element={<ContactList />} />
-        </Routes>
-      </Router>
-    </div>
-  )
+  return <div>
+            <Router>
+              <Navbar/>
+              <Routes>
+                  <Route path="/index" element={<Home/>}/>
+                  <Route path="/contact" element={<ContactApp/>}/>
+                  <Route path="/contact" element={<ContactDetails/>}/>
+              </Routes>
+            </Router>   
+        </div>
 }
-
 export default App;
