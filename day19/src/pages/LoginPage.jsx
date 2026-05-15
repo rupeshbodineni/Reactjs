@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import ToastMessage from "../components/ToastMessage";
 
@@ -9,6 +9,8 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +18,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await login(credentials);
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (err) {
       setError("Invalid username or password.");
     } finally {
