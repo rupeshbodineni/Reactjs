@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getContacts, exportContacts, importContacts } from "../services/contactService";
+import { getContacts, exportContacts, importContacts, seedContacts } from "../services/contactService";
 import ContactCard from "../components/ContactCard";
 import ImportModal from "../components/ImportModal";
 import SearchBar from "../components/SearchBar";
@@ -17,6 +17,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState("");
   const [toast, setToast] = useState("");
+  const [importError, setImportError] = useState("");
   const [showImportModal, setShowImportModal] = useState(false);
 
   const fetchContacts = async () => {
@@ -57,6 +58,19 @@ export default function DashboardPage() {
     }
   };
 
+  const handleSeedContacts = async () => {
+    setLoading(true);
+    try {
+      const result = await seedContacts();
+      setToast(result.data.detail || "Generated sample contacts.");
+      fetchContacts();
+    } catch (err) {
+      setToast("Unable to generate sample contacts.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleImport = async (file) => {
     if (!file) {
       setImportError("Please choose a CSV file.");
@@ -88,6 +102,9 @@ export default function DashboardPage() {
         <div className="header-actions">
           <button className="btn btn-secondary" type="button" onClick={handleExport}>
             Export CSV
+          </button>
+          <button className="btn btn-secondary" type="button" onClick={handleSeedContacts}>
+            Generate 100 Contacts
           </button>
           <button className="btn btn-secondary" type="button" onClick={() => setShowImportModal(true)}>
             Import CSV

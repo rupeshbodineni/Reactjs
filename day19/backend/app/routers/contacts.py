@@ -37,6 +37,12 @@ def import_contacts(file: UploadFile = File(...), db: Session = Depends(get_db),
     return {"detail": f"Imported {created} contacts."}
 
 
+@router.post("/seed")
+def seed_contacts(count: int = 100, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    created = crud.seed_contacts(db, current_user.id, count=count)
+    return {"detail": f"Seeded {created} contacts."}
+
+
 @router.get("/{contact_id}", response_model=schemas.ContactResponse)
 def get_contact(contact_id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     contact = crud.get_contact(db, current_user.id, contact_id)

@@ -113,6 +113,66 @@ def import_contacts_from_csv(db: Session, user_id: int, upload_file: UploadFile)
     return created
 
 
+def seed_contacts(db: Session, user_id: int, count: int = 100) -> int:
+    first_names = [
+        "Alex", "Maya", "Jordan", "Taylor", "Riley", "Cameron", "Casey", "Morgan", "Sydney", "Jamie",
+        "Parker", "Avery", "Reese", "Hayden", "Quinn", "Skyler", "Dakota", "Emerson", "Reagan", "Rowan",
+    ]
+    last_names = [
+        "Anderson", "Bailey", "Carter", "Diaz", "Evans", "Foster", "Griffin", "Hayes", "Irwin", "Jenkins",
+        "Kelley", "Lee", "Morgan", "Nelson", "Owens", "Perry", "Quinn", "Reed", "Sullivan", "Turner",
+    ]
+    companies = [
+        "Acme Corp", "BlueWave", "Crest Solutions", "Dynamo Labs", "Evergreen LLC", "Falcon Media", "GigaTech",
+        "Horizon Systems", "Ignite Ventures", "Juno Financial",
+    ]
+    job_titles = [
+        "Sales Manager", "Product Designer", "Software Engineer", "Marketing Specialist", "Customer Success",
+        "HR Lead", "Operations Director", "Finance Analyst", "Support Engineer", "Business Consultant",
+    ]
+    addresses = [
+        "123 Maple St, Springfield", "456 Oak Ave, Hillview", "789 Pine Rd, Riverton", "101 Elm St, Lakeside",
+        "202 Cedar Blvd, Brookfield", "303 Birch Ln, Meadowvale", "404 Walnut Dr, Fairview", "505 Cherry St, Crestwood",
+        "606 Aspen Way, Stonebridge", "707 Willow Ct, Greendale",
+    ]
+    notes_options = [
+        "Met at a conference.", "Follow up next week.", "Interested in partnership.", "VIP client.",
+        "Prefers email contact.", "Schedule annual review.", "Works remotely.", "Has pending proposal.",
+        "Sent NDA.", "Looking for discounts.",
+    ]
+
+    contacts = []
+    for index in range(count):
+        first_name = first_names[index % len(first_names)]
+        last_name = last_names[(index // len(first_names)) % len(last_names)]
+        full_name = f"{first_name} {last_name}"
+        email = f"{first_name.lower()}.{last_name.lower()}{index + 1}@example.com"
+        phone = f"+1-555-{1000 + index:04d}"
+        address = addresses[index % len(addresses)]
+        company = companies[index % len(companies)]
+        job_title = job_titles[index % len(job_titles)]
+        notes = notes_options[index % len(notes_options)]
+        is_favorite = index % 7 == 0
+
+        contacts.append(
+            models.Contact(
+                user_id=user_id,
+                full_name=full_name,
+                email=email,
+                phone=phone,
+                address=address,
+                company=company,
+                job_title=job_title,
+                notes=notes,
+                is_favorite=is_favorite,
+            )
+        )
+
+    db.add_all(contacts)
+    db.commit()
+    return len(contacts)
+
+
 def create_contact(db: Session, user_id: int, contact: schemas.ContactCreate, image: Optional[UploadFile] = None) -> models.Contact:
     image_name = save_contact_image(image) if image else None
     db_contact = models.Contact(**contact.dict(), user_id=user_id, image=image_name)

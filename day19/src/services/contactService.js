@@ -44,6 +44,10 @@ export const exportContacts = async () => {
   });
 };
 
+export const seedContacts = async () => {
+  return api.post("/contacts/seed");
+};
+
 export const importContacts = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
