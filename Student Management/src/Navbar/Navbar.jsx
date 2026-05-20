@@ -2,28 +2,45 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>
-      <div>
-           <img src="" alt="logo"/>
-           <ul>
-               <li>
-                  Home
-               </li>
-               <li>
-                  services
-               </li>
-               <li>
-                  Add Student
-               </li>
-               <li>
-                  Edit student
-               </li>
-               <li>
-                 List student
-               </li>
-           </ul>
-      </div>      
-    </div>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+      
+      <div className='container'>
+
+        <a className='navbar-brand' href="/">
+          <img 
+            src="https://via.placeholder.com/40" 
+            alt="logo"
+            width="40"
+            height="40"
+            className='me-2'
+          />
+          StudentApp
+        </a>
+
+        <ul className='navbar-nav ms-auto'>
+
+          <li className='nav-item'>
+            <a className='nav-link' href="/">
+              Home
+            </a>
+          </li>
+
+          <li className='nav-item'>
+            <a className='nav-link' href="/">
+              Services
+            </a>
+          </li>
+
+          <li className='nav-item'>
+            <a className='nav-link' href="/">
+              Add Student
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
   )
 }
 
