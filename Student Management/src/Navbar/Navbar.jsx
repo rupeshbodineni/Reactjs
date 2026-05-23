@@ -1,8 +1,6 @@
 import React from 'react'
 
-const Navbar = () => {
-  const totalStudents = 0
-
+const Navbar = ({ totalStudents }) => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       
