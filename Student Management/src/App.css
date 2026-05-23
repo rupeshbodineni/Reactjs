@@ -156,9 +156,6 @@
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
 }
 
 .ticks {
@@ -180,5 +177,34 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+/* Responsive app styling */
+.app-shell {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #0d6efd, #198754);
+  color: #ffffff;
+}
+
+.hero-banner .text-light-opacity {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 2rem 1.25rem;
   }
 }

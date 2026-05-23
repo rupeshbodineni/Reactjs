@@ -18,7 +18,7 @@ const Add = ({ setStudents }) => {
   }
 
   return (
-    <div className='card p-3'>
+    <div className='card p-3 shadow-sm h-100'>
       <h4 className='mb-3'>Add Student</h4>
       <form onSubmit={handleSubmit}>
         <div className='mb-3'>
