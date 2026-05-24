@@ -6,8 +6,21 @@ import List from './Components/List'
 import Home from './Home/Home'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+const initialStudents = [
+  { id: 1, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
+  { id: 2, name: 'Benjamin Lee', email: 'benjamin.lee@example.com' },
+  { id: 3, name: 'Chloe Patel', email: 'chloe.patel@example.com' },
+  { id: 4, name: 'Daniel Kim', email: 'daniel.kim@example.com' },
+  { id: 5, name: 'Emma García', email: 'emma.garcia@example.com' },
+  { id: 6, name: 'Fatima Noor', email: 'fatima.noor@example.com' },
+  { id: 7, name: 'George Brown', email: 'george.brown@example.com' },
+  { id: 8, name: 'Hannah Davis', email: 'hannah.davis@example.com' },
+  { id: 9, name: 'Ian Murphy', email: 'ian.murphy@example.com' },
+  { id: 10, name: 'Jasmine Singh', email: 'jasmine.singh@example.com' }
+]
+
 const App = () => {
-  const [students, setStudents] = useState([])
+  const [students, setStudents] = useState(initialStudents)
 
   return (
     <div className='app-shell'>
