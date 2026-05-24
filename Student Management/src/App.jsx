@@ -26,7 +26,17 @@ const initialStudents = [
   { id: 17, name: 'Quinn Roberts', email: 'quinn.roberts@example.com' },
   { id: 18, name: 'Riya Sharma', email: 'riya.sharma@example.com' },
   { id: 19, name: 'Samuel White', email: 'samuel.white@example.com' },
-  { id: 20, name: 'Tara Wilson', email: 'tara.wilson@example.com' }
+  { id: 20, name: 'Tara Wilson', email: 'tara.wilson@example.com' },
+  { id: 21, name: 'Uma Patel', email: 'uma.patel@example.com' },
+  { id: 22, name: 'Victor Hughes', email: 'victor.hughes@example.com' },
+  { id: 23, name: 'Wendy Park', email: 'wendy.park@example.com' },
+  { id: 24, name: 'Xavier Brooks', email: 'xavier.brooks@example.com' },
+  { id: 25, name: 'Yara Medina', email: 'yara.medina@example.com' },
+  { id: 26, name: 'Zoe Ellis', email: 'zoe.ellis@example.com' },
+  { id: 27, name: 'Aaron Wallace', email: 'aaron.wallace@example.com' },
+  { id: 28, name: 'Bella Morgan', email: 'bella.morgan@example.com' },
+  { id: 29, name: 'Carter Brooks', email: 'carter.brooks@example.com' },
+  { id: 30, name: 'Diana Fox', email: 'diana.fox@example.com' }
 ]
 
 const App = () => {
