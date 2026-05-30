@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './Navbar/Navbar'
 import Add from './Components/Add'
-import Edit from './Components/Edit'
 import List from './Components/List'
 import Home from './Home/Home'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -77,15 +77,12 @@ const App = () => {
         </section>
 
         <section className='content-section'>
-          <div className='section-grid'>
-            <Add setStudents={setStudents} />
-            <List students={students} />
-          </div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/add' element={<Add setStudents={setStudents} />} />
+            <Route path='/students' element={<List students={students} />} />
+          </Routes>
         </section>
-
-        <div className='mt-5'>
-          <Home />
-        </div>
       </main>
     </div>
   )
