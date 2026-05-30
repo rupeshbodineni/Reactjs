@@ -2,8 +2,8 @@
 
 const List = ({ students }) => {
   return (
-    <div className='card p-3 shadow-sm h-100'>
-      <h4 className='mb-3'>Student List</h4>
+    <div className='card p-4 h-100'>
+      <h4 className='mb-4'>Student List</h4>
       {students.length === 0 ? (
         <p className='text-muted'>No students have been added yet.</p>
       ) : (

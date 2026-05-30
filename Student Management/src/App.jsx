@@ -56,31 +56,34 @@ const App = () => {
     <div className='app-shell'>
       <Navbar totalStudents={students.length} />
 
-      <main className='container my-4'>
-        <section className='hero-banner rounded-4 p-4 p-md-5 mb-4 shadow-sm'>
-          <div className='d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3'>
+      <main className='container py-5'>
+        <section className='hero-banner mb-5'>
+          <div className='hero-content'>
             <div>
-              <h1 className='display-6 fw-bold'>Manage Student Records Easily</h1>
-              <p className='lead text-light-opacity mb-0'>Add students, view the list, and see the total count update live on every screen size.</p>
+              <h1>Modern student management made simple</h1>
+              <p>Keep student records organized with a clean dashboard, fast add flow, and responsive list view.</p>
             </div>
-            <div>
-              <div className='badge bg-white text-dark py-2 px-3 fs-6 shadow-sm'>
-                Students: {students.length}
+            <div className='hero-stats'>
+              <div className='hero-card'>
+                <span>Total active students</span>
+                <strong>{students.length}</strong>
+              </div>
+              <div className='hero-card'>
+                <span>Fresh new design</span>
+                <strong>Dashboard-style UI</strong>
               </div>
             </div>
           </div>
         </section>
 
-        <div className='row gy-4'>
-          <div className='col-lg-4'>
+        <section className='content-section'>
+          <div className='section-grid'>
             <Add setStudents={setStudents} />
-          </div>
-          <div className='col-lg-8'>
             <List students={students} />
           </div>
-        </div>
+        </section>
 
-        <div className='mt-4'>
+        <div className='mt-5'>
           <Home />
         </div>
       </main>

@@ -18,8 +18,8 @@ const Add = ({ setStudents }) => {
   }
 
   return (
-    <div className='card p-3 shadow-sm h-100'>
-      <h4 className='mb-3'>Add Student</h4>
+    <div className='card p-4 h-100'>
+      <h4 className='mb-4'>Add Student</h4>
       <form onSubmit={handleSubmit}>
         <div className='mb-3'>
           <label className='form-label'>Name</label>
@@ -41,7 +41,7 @@ const Add = ({ setStudents }) => {
             placeholder='Enter student email'
           />
         </div>
-        <button type='submit' className='btn btn-primary w-100'>
+        <button type='submit' className='btn button-primary w-100'>
           Add Student
         </button>
       </form>
