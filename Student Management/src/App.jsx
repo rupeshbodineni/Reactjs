@@ -38,9 +38,7 @@ const initialStudents = [
   { id: 29, name: 'Carter Brooks', email: 'carter.brooks@example.com' },
   { id: 30, name: 'Diana Fox', email: 'diana.fox@example.com' },
   { id: 31, name: 'Ethan Marshall', email: 'ethan.marshall@example.com' },
-  { id: 32, name: 'Fiona Baker', email: 'fiona.baker@example.com' },
-  { id: 33, name: 'Gabriel Flores', email: 'gabriel.flores@example.com' },
-  { id: 34, name: 'Heather Scott', email: 'heather.scott@example.com' }
+  { id: 32, name: 'Fiona Baker', email: 'fiona.baker@example.com' }
 ]
 
 const App = () => {
